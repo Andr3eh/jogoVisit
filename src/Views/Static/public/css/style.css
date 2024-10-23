@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    background-image: linear-gradient(to bottom right, #cce3de, #eaf4f4, #f6fff8);
+    background-size: cover;
+    color: darkblue;
+    font-family: "Roboto", sans-serif;
+}
+.card {
+    margin: 20px 0px;
+    padding-left: 40px;
+    padding: 10px;
+    background-image: linear-gradient(to bottom right, #cce3de, #eaf4f4, #f6fff8);
+    border-radius: 15px;
+}
+
+.card:hover{
+    padding: 5px;
+    box-shadow:  10px 5px 5px gray;
+   
+}
+h1, h2 {
+    text-shadow: 1px 1px 2px white;
+}
+.card-img-top{
+
+    border-radius: 20px;
+}
+
+.textGame{
+    font-family: "Dosis", sans-serif;
+    text-shadow: 10px 5px 5px gray;
+    color: black;
+}
+
+.marquee{
+    font-family: "Dosis", sans-serif;
+    color: black;
+}
+

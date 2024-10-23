@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhando o número que você pensou de 1 até 31!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('imagens/Champions_League.jpg'); 
+            background-size: cover;
+            color: white;
+            height: 100vh; 
+            overflow-y: auto; 
+        }
+        form {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: whitesmoke; 
+            font-family: Arial, sans-serif; 
+            position: relative;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px; 
+        }
+        .card {
+            margin: 15px;
+            background-color: rgba(255, 255, 255, 0.5); 
+        }
+        .modal-body {
+            color: black; 
+        }
+        h1, marquee {
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand " href="Home.html">Home</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " href="jogoVisit.html"  aria-disabled="true">Game Imagem</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="jogoNum.html">Game Numeros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="quizzok10.html">Quiz</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="carrossel.html"  aria-disabled="true">Criadores</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+    <div class="container text-center mt-5">
+        <h1>Jogo da Adivinhação - Escolha um número de 1 até 31</h1>
+		
+		<marquee behavior="alternate"><h2>Escolha abaixo as cartas em que seu número aparece.</h2></marquee>
+        
+        <form name="formAdivinha" method="get">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="imagens/carta1..png" class="card-img-top" alt="Carta 1">
+                        <div class="card-body">
+                            <input type="radio" name="op1" value="Sim"> Sim
+                            <input type="radio" name="op1" value="Não" checked> Não
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="imagens/carta2..png" class="card-img-top" alt="Carta 2">
+                        <div class="card-body">
+                            <input type="radio" name="op2" value="Sim"> Sim
+                            <input type="radio" name="op2" value="Não" checked> Não
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="imagens/carta3..png" class="card-img-top" alt="Carta 3">
+                        <div class="card-body">
+                            <input type="radio" name="op3" value="Sim"> Sim
+                            <input type="radio" name="op3" value="Não" checked> Não
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="imagens/carta4..png" class="card-img-top" alt="Carta 4">
+                        <div class="card-body">
+                            <input type="radio" name="op4" value="Sim"> Sim
+                            <input type="radio" name="op4" value="Não" checked> Não
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="imagens/carta5..png" class="card-img-top" alt="Carta 5">
+                        <div class="card-body">
+                            <input type="radio" name="op5" value="Sim"> Sim
+                            <input type="radio" name="op5" value="Não" checked> Não
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary mt-3" onclick="respostas()">Ver o Resultado</button>
+            <button type="reset" class="btn btn-secondary mt-3">Limpar Respostas</button>
+        </form>
+
+        <!-- Modal -->
+        <div class="modal fade" id="resultadoModal" tabindex="-1" role="dialog" aria-labelledby="resultadoModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="resultadoModalLabel">Resultado</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="resultado"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <a href="" class="btn btn-primary">Tentar Novamente</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function respostas() {
+            var acertos = 0;
+            var resp1 = document.formAdivinha.op1.value;
+            var resp2 = document.formAdivinha.op2.value;
+            var resp3 = document.formAdivinha.op3.value;
+            var resp4 = document.formAdivinha.op4.value;
+            var resp5 = document.formAdivinha.op5.value;
+
+            if (resp1 === "Sim") acertos += 1;
+            if (resp2 === "Sim") acertos += 2;
+            if (resp3 === "Sim") acertos += 4;
+            if (resp4 === "Sim") acertos += 8;
+            if (resp5 === "Sim") acertos += 16;
+
+            var resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = ''; // Limpa resultados anteriores
+
+            if (acertos > 0) {
+                resultadoDiv.innerHTML = '<h2>O número que você pensou foi: ' + acertos + '</h2>';
+                resultadoDiv.innerHTML += '<img src="adivinhador.jpg" width="300" height="300" alt="Adivinhador" />';
+                $('#resultadoModal').modal('show'); // Exibe o modal
+            } else {
+                alert('Você não escolheu nenhuma carta');
+            }
+        }
+    </script>
+</body>
+</html>
